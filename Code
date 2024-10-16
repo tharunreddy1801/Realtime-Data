@@ -1,0 +1,72 @@
+#include <ESP8266WiFi.h>
+#include <Adafruit_MQTT.h>
+#include <Adafruit_MQTT_Client.h>
+#include <AdafruitIO_WiFi.h>
+
+// Ultrasonic Sensor Pins
+#define TRIG_PIN 5   // D1 on ESP8266
+#define ECHO_PIN 4   // D2 on ESP8266
+
+// WiFi credentials
+#define WIFI_SSID "Par 103"
+#define WIFI_PASS "12341234"
+
+// Adafruit IO credentials
+#define AIO_USERNAME "ystreddy "
+#define AIO_KEY "aio_NJAj51xMJ6Di2ijhoc4OHKDrW2cJ"
+
+// Adafruit IO Instance
+AdafruitIO_WiFi io(AIO_USERNAME, AIO_KEY, WIFI_SSID, WIFI_PASS);
+
+// Feed for Ultrasonic data
+AdafruitIO_Feed *ultrasonic_feed = io.feed("ultrasonic");
+
+void setup() {
+  // Initialize Serial Monitor
+  Serial.begin(115200);
+
+  // Initialize Ultrasonic Sensor Pins
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+
+  // Connect to Adafruit IO
+  Serial.print("Connecting to Adafruit IO...");
+  io.connect();
+
+  // Wait for connection
+  while(io.status() < AIO_CONNECTED) {
+    Serial.print(".");
+    delay(500);
+  }
+
+  Serial.println();
+  Serial.println("Adafruit IO Connected!");
+}
+
+void loop() {
+  // Trigger the ultrasonic sensor to send a pulse
+  long duration, distance;
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  // Measure the time the echo takes to return
+  duration = pulseIn(ECHO_PIN, HIGH);
+
+  // Calculate distance in centimeters
+  distance = (duration / 2) / 29.1;
+
+  // Print distance to Serial Monitor
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  // Send data to Adafruit IO feed
+  ultrasonic_feed->save(distance);
+
+  // Wait a bit before the next reading
+  delay(2000);
+}
+Author:Yennam Sai tharun Reddy
