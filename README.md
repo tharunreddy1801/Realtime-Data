@@ -16,5 +16,9 @@ This repository includes:
 .Circuit diagram, sample dashboard screenshots, and code comments
 
 
+# Circuit Diagram
+![Circuit Diagram](https://github.com/tharunreddy1801/Realtime-Data/blob/f3096b375411d7fe0d87e9bba6a771a719f63667/real-time-data.png?raw=true)
+
+
 This is ideal for IoT projects like obstacle detection, smart parking systems, or distance monitoring applications.
 
