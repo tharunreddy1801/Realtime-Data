@@ -40,10 +40,10 @@ Using the MQTT protocol, the ESP8266 establishes a connection with Adafruit IO a
   - `ESP8266WiFi`
 
 ### 2. Configure `config.h`
-#define WIFI_SSID       "your_wifi_ssid"
-#define WIFI_PASSWORD   "your_wifi_password"
-#define AIO_USERNAME    "your_adafruit_io_username"
-#define AIO_KEY         "your_adafruit_io_key"
+- #define WIFI_SSID       "your_wifi_ssid"
+- #define WIFI_PASSWORD   "your_wifi_password"
+- #define AIO_USERNAME    "your_adafruit_io_username"
+- #define AIO_KEY         "your_adafruit_io_key"
 
 # Circuit Diagram
 ![Circuit Diagram](https://github.com/tharunreddy1801/Realtime-Data/blob/f3096b375411d7fe0d87e9bba6a771a719f63667/real-time-data.png?raw=true)
@@ -51,10 +51,10 @@ Using the MQTT protocol, the ESP8266 establishes a connection with Adafruit IO a
 ## 🔐 Applications
 This is ideal for IoT projects like obstacle detection, smart parking systems, or distance monitoring applications.
 ## 🚀 Future Improvements
--Add temperature compensation for more accurate distance
--Enable alerts when object crosses a set threshold
--Support multiple sensors
+- Add temperature compensation for more accurate distance
+- Enable alerts when object crosses a set threshold
+- Support multiple sensors
 
-👨‍💻 Author
+## 👨‍💻 Author
 Yennam Sai Tharun Reddy ✨
 
