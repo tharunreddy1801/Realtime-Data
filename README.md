@@ -30,6 +30,21 @@ Using the MQTT protocol, the ESP8266 establishes a connection with Adafruit IO a
 - 🔋 **Breadboard and USB Cable**
 - 🌐 **Wi-Fi Access Point**
 
+  
+## 🧠 Software Setup
+
+### 1. Install Required Libraries:
+- Install the **ESP8266 board package** in the Arduino IDE.
+- Install libraries:
+  - `Adafruit MQTT Library`
+  - `ESP8266WiFi`
+
+### 2. Configure `config.h`
+#define WIFI_SSID       "your_wifi_ssid"
+#define WIFI_PASSWORD   "your_wifi_password"
+#define AIO_USERNAME    "your_adafruit_io_username"
+#define AIO_KEY         "your_adafruit_io_key"
+
 # Circuit Diagram
 ![Circuit Diagram](https://github.com/tharunreddy1801/Realtime-Data/blob/f3096b375411d7fe0d87e9bba6a771a719f63667/real-time-data.png?raw=true)
 
@@ -40,5 +55,6 @@ This is ideal for IoT projects like obstacle detection, smart parking systems, o
 -Enable alerts when object crosses a set threshold
 -Support multiple sensors
 
-
+👨‍💻 Author
+Yennam Sai Tharun Reddy ✨
 
